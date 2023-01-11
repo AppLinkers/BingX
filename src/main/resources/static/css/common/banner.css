@@ -15,3 +15,9 @@
 
     border: 1px solid var(--color-gray20);
 }
+
+@media screen and (max-width: 780px) {
+    .banner__container {
+        height: 200px;
+    }
+}
