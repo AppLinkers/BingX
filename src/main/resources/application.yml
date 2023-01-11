@@ -1,0 +1,41 @@
+spring:
+  # H2-DB setting
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:mem:testdb # h2-DB url
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  # JPA setting
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+  # thymeleaf PUT, DELETE Method use
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+
+#S3
+cloud:
+  aws:
+    credentials:
+      instanceProfile: true
+      accessKey: AKIA23B2HXAERDMRBXSF
+      secretKey: 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
+    s3:
+      bucket: omimage
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false

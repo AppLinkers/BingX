@@ -1,0 +1,68 @@
+.logo-div {
+    padding: 25px 0;
+}
+
+.main-logo {
+    width: var(--logo-width);
+    height: var(--logo-height);
+}
+
+menu {
+    position: absolute;
+    background: var(--color-white);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 9;
+    display: none;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+menu.active {
+    display: flex;
+    opacity: 1;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu-btn i {
+    font-size: 25px;
+    color: var(--color-gray);
+}
+
+.menu-content {
+    padding: 20px 0;
+}
+
+.menu-content a {
+    margin-bottom: 60px;
+}
+
+/* =================ADMIN LOGIN================ */
+.menu-admin-login {
+    color: var(--color-gray);
+}
+
+.menu-admin-login:hover {
+    text-decoration: underline;
+}
+
+/* =================MEDIA QUERY================ */
+@media screen and (max-width: 780px) {
+    .logo-div {
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+
+    .main-logo {
+        width: var(--logo-width-phone);
+        height: var(--logo-height-phone);
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}

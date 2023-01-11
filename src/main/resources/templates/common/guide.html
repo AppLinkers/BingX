@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BingX</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+            rel="stylesheet">
+
+    <!-- ICON SCOUT -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="/css/common/style.css">
+    <link rel="stylesheet" href="/css/common/banner.css">
+    <link rel="stylesheet" href="/css/common/pagination.css">
+</head>
+
+<body>
+<div class="wrapper flex-between-column">
+    <div class="wrapper-inner">
+        <!-- ======== HEADER ======== -->
+        <header id="header"></header>
+        <!-- ======== NAV ======== -->
+        <nav id="nav"></nav>
+        <style>
+            nav a:nth-child(2) {
+                color: var(--color-black);
+            }
+        </style>
+        <!-- ======== BANNER ======== -->
+        <div class="container-fit banner__container">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex-center" th:each="ad_banner : ${advertisementList}"><img th:src="${ad_banner.imgUrl}"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- ======== GUIDE ======== -->
+        <div class="container basic__container">
+
+            <div class="header-label flex-between">
+                <a class="a-section" href="/guide">가이드</a>
+                <div class="label-right flex-left">
+                    <i class="uil uil-estate" style="margin-right: 5px;"></i>
+                    <p>홈 > biget > 가이드</p>
+                </div>
+            </div>
+
+            <div class="article-list">
+
+                <article class="article-form" th:each="guide : ${guideList}">
+                    <a th:href="'/guide/' + ${guide.id}">
+                        <div class="article-inner">
+                            <div class="article-img">
+                                <img th:src="${guide.imgUrl}">
+                            </div>
+
+                            <div class="article-content">
+                                <p class="p-section ellipsis-line-one" th:text="${guide.title}">비트겟 이용 가이드 - 마진 거래 활용하기</p>
+                                <div class="article-info flex-left">
+                                    <p style="font-weight: 300;" th:text="${guide.writerName}">비트겟 코리아</p>
+                                    <p class="p-content" style="color: var(--color-gray20);">|</p>
+                                    <p class="p-content" style="color: var(--color-primary);" th:text="${guide.viewCnt}">288</p>
+                                    <p class="p-content" style="color: var(--color-gray20);">|</p>
+                                    <p class="p-content" style="color: var(--color-gray); font-weight: 300;" th:text="${guide.createdAt}">2022.12.20</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+
+            <nav id="pagination" class="flex-center">
+                <table>
+                    <tr>
+                        <td th:each="i: ${#numbers.sequence(0, guideList.totalPages - 1)}">
+                            <a class="a-content pagination active" th:if="${guideList.number == i}" th:text="${i}" th:href="@{|/guide?page=${i}|}"></a>
+                            <a class="a-content pagination" th:unless="${guideList.number == i}" th:text="${i}" th:href="@{|/guide?page=${i}|}"></a>
+                        </td>
+                    </tr>
+                </table>
+            </nav>
+
+        </div>
+
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer id="footer"></footer>
+</div>
+
+
+
+
+
+
+<!-- ======== JAVASCRIPT ======== -->
+<script src="/javascript/common/base.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+</body>
+
+</html>

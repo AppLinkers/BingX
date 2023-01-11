@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BingX</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+            rel="stylesheet">
+
+    <!-- ICON SCOUT -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="/css/common/style.css">
+    <link rel="stylesheet" href="/css/admin/admin.css">
+
+    <!-- SMART EDITOR -->
+    <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+</head>
+
+<body>
+<!-- ======== HEADER ======== -->
+<header id="header"></header>
+<!-- ======== NAV ======== -->
+<nav id="nav"></nav>
+<style>
+    .nav__container a:nth-child(1) {
+        border-bottom: 3px solid var(--color-primary);
+        color: var(--color-primary);
+    }
+</style>
+
+<!-- ======== ADMIN ======== -->
+<div class="container admin__container">
+
+    <form th:action="@{/admin/announce/}" th:method="post" th:object="${createAnnounceReq}" enctype="multipart/form-data">
+        <div class="admin__title flex-between">
+            <p class="p-menu">공지사항 작성</p>
+            <button type="submit" onclick="submitContents()">발행하기</button>
+        </div>
+
+        <div class="form__title">
+            <input class="admin-input" type="text" th:field="*{title}" placeholder="제목">
+        </div>
+
+        <div class="form__img">
+            <p class="p-title">대표 이미지</p>
+            <input id="selectImg" th:field="*{imgFile}" type="file" hidden>
+            <div class="form__img-container gray-stroke flex-center" onclick="defaultBtnActive()">
+                <div class="upload-icon flex-center active">
+                    <i class="uil uil-image-upload" style="margin-right: 5px;"></i>
+                    <p class="p-etc">업로드 하기</p>
+                </div>
+                <img>
+            </div>
+        </div>
+
+        <div id="smarteditor">
+                <textarea name="editorTxt" th:field="*{content}" id="editorTxt" cols="100" rows="10" placeholder="내용을 입력해주세요"
+                          style="width: 100%; height: 600px;"></textarea>
+        </div>
+    </form>
+
+</div>
+
+
+<!-- ======== JAVASCRIPT ======== -->
+<script src="/javascript/admin/base.js"></script>
+<script src="/javascript/admin/uploadImg.js"></script>
+<script type="text/javascript">
+    var oEditors = [];
+    nhn.husky.EZCreator.createInIFrame({
+        oAppRef: oEditors,
+        elPlaceHolder: "editorTxt",
+        sSkinURI: "/smarteditor/SmartEditor2Skin.html",
+        fCreator: "createSEditor2"
+    });
+
+    // ‘저장’ 버튼을 누르는 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
+    function submitContents(elClickedObj) {
+        // 에디터의 내용이 textarea에 적용된다.
+        oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+
+        // 에디터의 내용에 대한 값 검증은 이곳에서
+        // document.getElementById("editorTxt").value를 이용해서 처리한다.
+
+        try {
+            elClickedObj.form.submit();
+        } catch (e) { }
+    }
+</script>
+
+</body>
+
+</html>

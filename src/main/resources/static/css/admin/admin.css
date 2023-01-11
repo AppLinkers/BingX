@@ -1,0 +1,200 @@
+body {
+    background: var(--color-gray20);
+}
+
+.admin__container {
+    background: var(--color-white);
+    padding: var(--admin-padding);
+}
+
+/* ===== 제목 부분 ===== */
+.admin__title {
+    border-bottom: 1px solid var(--color-gray20);
+    padding: 20px 0;
+}
+
+.add-button {
+    padding: 5px;
+}
+
+
+/* ===== 라벨 부분 ===== */
+.admin__label {
+    height: 30px;
+    margin-top: 15px;
+    background: var(--color-gray);
+    border-radius: var(--corner-radius);
+    color: var(--color-white);
+}
+
+.list__grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 100px;
+    align-items: center;
+}
+
+.banner__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 100px;
+    align-items: center;
+}
+
+.admin__label p {
+    font-weight: 300;
+    padding-left: 10px;
+    border-right: 1px solid var(--color-gray10);
+}
+
+.admin__label p:last-child {
+    border: none;
+}
+
+
+/* ===== 리스트 부분 ===== */
+.admin__list {
+    height: calc(100% - 110px);
+    background: var(--color-gray10);
+    overflow-y: auto;
+}
+
+.list-item {
+    background: var(--color-white);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-gray20);
+}
+
+.list-item a,
+.list-item p {
+    padding: 0 10px;
+}
+
+.list-item a {
+    font-weight: 500;
+}
+
+.list-item a:hover {
+    text-decoration: underline;
+}
+
+.list-item .gray-box {
+    width: 60px;
+    padding: 3px 0;
+    cursor: pointer;
+}
+
+
+/* ===== 작성 부분 ===== */
+button {
+    width: 90px;
+    padding: 10px;
+}
+
+#editorTxt {
+    width: 100%;
+}
+
+.form__img {
+    padding: 30px 15px;
+}
+
+.form__img-container {
+    width: var(--article-img-width);
+    height: var(--article-img-height);
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.banner-img {
+    width: 100%;
+    height: var(--banner-img-height);
+}
+
+.form__img-container img {
+    display: none;
+}
+
+.form__img-container img.active {
+    display: block;
+}
+
+.upload-icon {
+    display: none;
+    color: var(--color-gray);
+}
+
+.upload-icon.active {
+    display: flex;
+}
+
+/* ===== 삭제 알림창 부분 ===== */
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal__body {
+    position: relative;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--color-white);
+    border-radius: var(--corner-radius);
+    width: 360px;
+    height: 200px;
+    padding: 20px;
+}
+
+.modal__body .p-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.modal-button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.modal-cancel {
+    width: 90px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button.modal-delete {
+    background: var(--color-red);
+}
+
+/* =================MEDIA QUERY================ */
+@media screen and (max-width: 780px) {
+    .container {
+        width: 100%;
+    }
+
+    .admin__container {
+        padding: var(--admin-padding-phone);
+    }
+
+    .list__grid {
+        grid-template-columns: 1fr 100px;
+    }
+
+    .list__grid p:nth-child(2),
+    .list__grid p:nth-child(3) {
+        display: none;
+    }
+
+    .list-item .p-contnet {
+        display: none;
+    }
+
+}

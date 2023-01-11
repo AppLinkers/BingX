@@ -1,0 +1,43 @@
+.auth__container {
+    height: 100vh;
+}
+
+.auth-box {
+    width: 35%;
+    padding: 25px 15px;
+}
+
+.p-label {
+    padding: 10px 0 30px 0;
+}
+
+.p-title {
+    margin-bottom: 8px;
+}
+
+.p-content {
+    margin-top: 3px;
+    color: var(--color-red);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+button {
+    margin-top: 15px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: 5px;
+}
+
+/* =================MEDIA QUERY================ */
+@media screen and (max-width: 780px) {
+
+    .auth-box {
+        width: 100%;
+    }
+}

@@ -1,0 +1,221 @@
+/* ====== 상단 코인 가격 슬라이드======== */
+.price__container {
+    margin-top: 15px;
+}
+
+/* ======메인 이미지======== */
+.body_img__container {
+    margin-top: 15px;
+    background-image: url("/images/body_img.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: var(--body-container-height);
+    padding: var(--body-container-padding);
+    border-radius: var(--border-radius);
+}
+
+.body_logo {
+    width: var(--logo-width-body);
+    height: var(--logo-height-body);
+}
+
+.body_bold {
+    color: var(--color-primary);
+    font-weight: 900;
+}
+
+.body_img_item {
+    width: 100%;
+    height: var(--body-item-height);
+    background: var(--color-white-60);
+    border-radius: var(--body-item-radius);
+    padding: var(--body-item-padding);
+}
+
+.body_img_icon {
+    width: var(--body-icon-size);
+    height: var(--body-icon-size);
+    background-color: transparent;
+}
+
+.body_img_item .p-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.body_img_item .p-content {
+    font-weight: 300;
+    color: var(--color-gray);
+}
+
+/* ======HOME MAIN======== */
+.home__container {
+    padding-top: 15px;
+}
+
+.home__container .grid-left {
+    border-bottom: 1px solid var(--color-gray20);
+    padding-bottom: 50px;
+}
+
+
+/* 탭 바 메뉴 */
+.home-label {
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.label-list a {
+    margin-right: 25px;
+    color: var(--color-gray20);
+}
+
+.label-list a.active {
+    color: var(--color-black);
+}
+
+.label-buttons a {
+    display: none;
+}
+
+.label-buttons a.active {
+    display: block;
+}
+
+.label-plus {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.label-plus i {
+    font-size: 18px;
+}
+
+/* 탭 화면 */
+.home-divs {
+    padding: 10px 0 20px 0;
+}
+
+.home-target-div {
+    display: none;
+}
+
+.home-target-div.active {
+    display: block;
+}
+
+/* 공지사항 탭 */
+.announce-article {
+    display: grid;
+    grid-template-columns: 1fr 7fr 1.5fr 1fr;
+    padding: 10px 0;
+}
+
+.announce-article .p-title,
+.announce-article .p-content {
+    color: var(--color-gray);
+}
+
+.announce-article:hover a {
+    color: var(--color-primary);
+}
+
+.announce-article a:hover {
+    color: var(--color-primary);
+}
+
+/* 가이드 탭 */
+.guide-content .p-section {
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+.guide-content .p-section:hover {
+    color: var(--color-primary);
+}
+
+.guide-content .p-basic {
+    color: var(--color-gray);
+    margin-bottom: 10px;
+}
+
+.guide-info p {
+    margin-right: 15px;
+}
+
+
+/* =================ADMIN LOGIN================ */
+.admin-login {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: var(--color-gray);
+}
+
+.admin-login:hover {
+    text-decoration: underline;
+}
+
+
+
+/* =================MEDIA QUERY================ */
+@media screen and (max-width: 1000px) {
+    .body_img_item .p-content {
+        display: none;
+    }
+
+    .body_img_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .body_img_item .p-title {
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 780px) {
+
+    .body_img__container {
+        padding: var(--body-container-padding-phone);
+    }
+
+    .body_img_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .body_img_wrapper p {
+        display: none;
+    }
+
+    .body_img_wrapper .p-bigger {
+        display: block;
+        text-align: center;
+        font-size: var(--font-menu);
+    }
+
+    .body_img_item {
+        height: var(--body-item-height-phone);
+    }
+
+    .announce-article {
+        grid-template-columns: 80px 7fr;
+    }
+
+    .announce-article .announce-writer {
+        display: none;
+    }
+
+    .announce-article .p-content {
+        display: none;
+    }
+
+    .admin-login {
+        display: none;
+    }
+}

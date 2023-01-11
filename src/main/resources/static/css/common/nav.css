@@ -1,0 +1,21 @@
+.nav__container {
+    height: 60px;
+    background: var(--color-primary);
+    border-radius: var(--border-radius);
+}
+
+nav ul {
+    height: 100%;
+}
+
+nav ul a {
+    color: var(--color-white);
+    padding: 0 20px;
+}
+
+/* =================MEDIA QUERY================ */
+@media screen and (max-width: 780px) {
+    .nav__container {
+        display: none;
+    }
+}

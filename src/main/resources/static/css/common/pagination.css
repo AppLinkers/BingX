@@ -1,0 +1,16 @@
+nav#pagination {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pagination {
+    padding: var(--pagination-padding);
+    border: 1px solid var(--color-gray20);
+    border-radius: var(--pagination-radius);
+}
+
+.pagination.active {
+    background: var(--color-gray);
+    border: 1px solid var(--color-gray);
+    color: var(--color-white);
+}

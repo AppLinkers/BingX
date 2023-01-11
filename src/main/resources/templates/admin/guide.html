@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BingX</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+            rel="stylesheet">
+
+    <!-- ICON SCOUT -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="/css/common/style.css">
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="stylesheet" href="/css/common/pagination.css">
+</head>
+
+<body>
+<!-- ======== HEADER ======== -->
+<header id="header"></header>
+<!-- ======== NAV ======== -->
+<nav id="nav"></nav>
+<style>
+    .nav__container a:nth-child(2) {
+        border-bottom: 3px solid var(--color-primary);
+        color: var(--color-primary);
+    }
+</style>
+
+<!-- ======== ADMIN ======== -->
+<div class="container admin__container">
+
+    <div class="admin__title flex-between">
+        <p class="p-menu">가이드 관리</p>
+        <a href="/admin/guide/form" class="add-button gray-stroke flex-center">
+            <i class="uil uil-pen"></i>
+            <p class="p-content" style="margin-left: 5px;">작성하기</p>
+        </a>
+    </div>
+
+    <div class="admin__label list__grid">
+        <p class="p-etc">제목</p>
+        <p class="p-etc">작성자</p>
+        <p class="p-etc">작성 일시</p>
+        <p class="p-etc">관리</p>
+    </div>
+
+    <div class="admin__list" >
+
+        <div class="list-item list__grid" th:each="guide : ${guideList.content}">
+            <a class="list-id" th:text="${guide.id}" hidden></a>
+            <a class="ellipsis-line-one list-title" th:text="${guide.title}">가이드 제목입니다</a>
+            <p class="p-content ellipsis-line-one" th:text="${guide.writerName}">비트겟 코리아</p>
+            <p class="p-content" th:text="${guide.createdAt}">2022-12-22</p>
+            <div class="flex-center">
+                <p class="delete-button gray-box p-etc flex-center">삭제</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <nav id="pagination" class="flex-center">
+        <table>
+            <tr>
+                <td th:each="i: ${#numbers.sequence(0, guideList.totalPages - 1)}">
+                    <a class="a-content pagination active" th:if="${guideList.number == i}" th:text="${i}" th:href="@{|/admin/guide?page=${i}|}"></a>
+                    <a class="a-content pagination" th:unless="${guideList.number == i}" th:text="${i}" th:href="@{|/admin/guide?page=${i}|}"></a>
+                </td>
+            </tr>
+        </table>
+    </nav>
+
+</div>
+
+<!-- ======== MODAL ======== -->
+<div class="modal">
+    <div class="modal__body">
+        <form class="modal__form" action="/admin/guide/"  th:method="delete">
+
+            <div class="modal__content">
+                <p class="p-title">삭제</p>
+                <p class="modal-item-title p-section ellipsis-line-one"></p>
+                <p class="p-section">을/를 정말 삭제하시겠습니까?</p>
+            </div>
+
+            <div class="modal-button-container flex-center">
+                <div class="modal-cancel">취소</div>
+                <button type="submit" class="modal-delete">삭제</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<!-- ======== JAVASCRIPT ======== -->
+<script src="/javascript/admin/base.js"></script>
+
+</body>
+
+</html>

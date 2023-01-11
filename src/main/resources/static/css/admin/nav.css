@@ -1,0 +1,16 @@
+.nav__container {
+    height: 50px;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray20);
+}
+
+.nav__container a {
+    height: 100%;
+    border-bottom: 3px solid var(--color-white);
+    transition: var(--transition);
+}
+
+.nav__container a:hover {
+    border-bottom: 3px solid var(--color-primary);
+    color: var(--color-primary);
+}

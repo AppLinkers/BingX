@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BingX</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+            rel="stylesheet">
+
+    <!-- ICON SCOUT -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="/css/common/style.css">
+    <link rel="stylesheet" href="/css/common/banner.css">
+</head>
+
+<body>
+<div class="wrapper flex-between-column">
+    <div class="wrapper-inner">
+        <!-- ======== HEADER ======== -->
+        <header id="header"></header>
+        <!-- ======== NAV ======== -->
+        <nav id="nav"></nav>
+        <style>
+            nav a:nth-child(2) {
+                color: var(--color-black);
+            }
+        </style>
+        <!-- ======== BANNER ======== -->
+        <div class="container-fit banner__container">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex-center" th:each="ad_banner : ${advertisementList}"><img th:src="${ad_banner.imgUrl}"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+
+        <!-- ======== ANNOUNCE DETAIL ======== -->
+        <div class="container basic__container">
+            <div class="header-label flex-between">
+                <a class="a-section" href="/guide">가이드</a>
+                <div class="label-right flex-left">
+                    <i class="uil uil-estate" style="margin-right: 5px;"></i>
+                    <p>홈 > biget > 가이드</p>
+                </div>
+            </div>
+
+            <div class="detail-title">
+                <p class="p-menu" th:text="${guide.title}">비트겟 이용 가이드 - 마진 거래 활용하기</p>
+            </div>
+
+            <div class="detail-label flex-between">
+                <div class="flex-left">
+                    <p class="p-title" style="margin-right: 25px; color: var(--color-black);" th:text="${guide.writerName}">비트겟 코리아</p>
+                    <i class="uil uil-eye" style="margin-right: 5px;"></i>
+                    <p th:text="${guide.viewCnt}">288</p>
+                </div>
+
+                <div class="flex-left">
+                    <i class="uil uil-clock" style="margin-right: 5px;"></i>
+                    <p th:text="${guide.createdAt}">22.12.20</p>
+                </div>
+            </div>
+
+            <div class="detail-img flex-center">
+                <img th:src="${guide.imgUrl}" alt="">
+            </div>
+            <p class="p-section" th:utext="${guide.content}"></p>
+
+        </div>
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer id="footer"></footer>
+</div>
+
+
+<!-- ======== JAVASCRIPT ======== -->
+<script src="/javascript/common/base.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+</body>
+
+</html>

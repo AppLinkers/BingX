@@ -1,0 +1,26 @@
+.header__container {
+    height: 60px;
+    background: var(--color-primary);
+    padding: 0 20px;
+}
+
+.header__container .a-section {
+    color: var(--color-white);
+    font-weight: 300;
+}
+
+.change-password-button {
+    color: var(--color-white);
+    margin-right: 15px;
+}
+
+.logout-button {
+    width: 70px;
+    padding: 5px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray20);
+    border-radius: var(--corner-radius);
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
