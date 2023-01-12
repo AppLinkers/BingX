@@ -10,5 +10,7 @@ public class CreateAdvertisementReq {
 
     private String title;
 
+    private String linkUrl;
+
     private MultipartFile imgFile;
 }

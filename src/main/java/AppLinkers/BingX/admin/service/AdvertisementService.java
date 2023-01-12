@@ -38,6 +38,7 @@ public class AdvertisementService {
         advertisementRepository.save(
                 Advertisement.builder()
                         .title(request.getTitle())
+                        .linkUrl(request.getLinkUrl())
                         .imgUrl(imgUrl)
                         .build()
         );
@@ -54,6 +55,7 @@ public class AdvertisementService {
         for (Advertisement advertisement : advertisementRepository.findAll()) {
             result.add(
                     ReadAdvertisementMainRes.builder()
+                            .linkUrl(advertisement.getLinkUrl())
                             .imgUrl(advertisement.getImgUrl())
                             .build()
             );
@@ -74,6 +76,7 @@ public class AdvertisementService {
                     ReadAdvertisementInfoRes.builder()
                             .id(advertisement.getId())
                             .title(advertisement.getTitle())
+                            .linkUrl(advertisement.getLinkUrl())
                             .imgUrl(advertisement.getImgUrl())
                             .build()
             );

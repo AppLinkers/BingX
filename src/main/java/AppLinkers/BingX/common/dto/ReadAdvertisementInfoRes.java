@@ -9,6 +9,8 @@ public class ReadAdvertisementInfoRes {
 
     private Long id;
 
+    private String linkUrl;
+
     private String title;
 
     private String imgUrl;
