@@ -32,7 +32,7 @@ public class AdvertisementService {
 
         String imgUrl = "";
         if (!request.getImgFile().isEmpty()) {
-            s3Service.upload(request.getImgFile(), "advertisement");
+            imgUrl = s3Service.upload(request.getImgFile(), "advertisement");
         }
 
         advertisementRepository.save(
