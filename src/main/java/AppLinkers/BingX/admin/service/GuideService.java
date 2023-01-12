@@ -35,7 +35,7 @@ public class GuideService {
     public void createGuide(CreateGuideReq request, String userLoginId) throws IOException {
         User user = userRepository.findUserByLoginId(userLoginId).get();
 
-        String imgUrl = "";
+        String imgUrl = "https://bingx-image.s3.ap-northeast-2.amazonaws.com/bingx.png";
         if (!request.getImgFile().isEmpty()) {
             imgUrl = s3Service.upload(request.getImgFile(), "guide/thumbnail");
         }
