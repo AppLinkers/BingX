@@ -6,14 +6,14 @@ spring:
       settings:
         web-allow-others: true
   datasource:
-    url: jdbc:h2:mem:testdb # h2-DB url
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:mysql://bingx.c1hjri6ln58w.ap-northeast-2.rds.amazonaws.com/bingx_prod
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: 2db8ddasf!
   # JPA setting
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     show-sql: false
   # thymeleaf PUT, DELETE Method use
   mvc:
@@ -30,10 +30,10 @@ cloud:
   aws:
     credentials:
       instanceProfile: true
-      accessKey: AKIA23B2HXAERDMRBXSF
-      secretKey: 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
+      accessKey: AKIARY3466IHV5LQXTAG
+      secretKey: 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
     s3:
-      bucket: omimage
+      bucket: bingx-image
     region:
       static: ap-northeast-2
       auto: false
