@@ -73,7 +73,7 @@
     <nav id="pagination" class="flex-center">
         <table>
             <tr>
-                <td th:each="i: ${#numbers.sequence(0, announceList.totalPages - 1)}" style="margin-top: 20px;">
+                <td th:if="${announceList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, announceList.totalPages - 1)}" style="margin-top: 20px;">
                     <a class="a-content pagination active" th:if="${announceList.number == i}" th:text="${i}" th:href="@{|/admin/announce?page=${i}|}"></a>
                     <a class="a-content pagination" th:unless="${announceList.number == i}" th:text="${i}" th:href="@{|/admin/announce?page=${i}|}"></a>
                 </td>

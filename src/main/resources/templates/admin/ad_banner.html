@@ -75,7 +75,7 @@
     <nav id="pagination" class="flex-center">
         <table>
             <tr>
-                <td th:each="i: ${#numbers.sequence(0, advertisementList.totalPages - 1)}">
+                <td th:if="${advertisementList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, advertisementList.totalPages - 1)}">
                     <a class="a-content pagination active" th:if="${advertisementList.number == i}" th:text="${i}" th:href="@{|/ad_banner?page=${i}|}"></a>
                     <a class="a-content pagination" th:unless="${advertisementList.number == i}" th:text="${i}" th:href="@{|/ad_banner?page=${i}|}"></a>
                 </td>

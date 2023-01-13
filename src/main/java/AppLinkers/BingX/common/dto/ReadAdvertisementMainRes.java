@@ -7,5 +7,6 @@ import lombok.Getter;
 @Builder
 public class ReadAdvertisementMainRes {
 
+    private String linkUrl;
     private String imgUrl;
 }

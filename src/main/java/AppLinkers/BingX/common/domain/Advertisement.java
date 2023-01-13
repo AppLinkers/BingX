@@ -21,11 +21,15 @@ public class Advertisement {
     private String title;
 
     @Column(nullable = false)
+    private String linkUrl;
+
+    @Column(nullable = false)
     private String imgUrl;
 
     @Builder
-    public Advertisement(String title, String imgUrl) {
+    public Advertisement(String title, String linkUrl ,String imgUrl) {
         this.title = title;
         this.imgUrl = imgUrl;
+        this.linkUrl = linkUrl;
     }
 }

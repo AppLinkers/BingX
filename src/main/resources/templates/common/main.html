@@ -101,7 +101,9 @@
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide flex-center" th:each="ad_banner : ${advertisementList}"><img th:src="${ad_banner.imgUrl}"></div>
+                    <div class="swiper-slide flex-center" th:each="ad_banner : ${advertisementList}">
+                            <img th:src="${ad_banner.imgUrl}" th:onclick="'location.href=\''+ @{${ad_banner.linkUrl}} + '\''"/>
+                    </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -113,7 +115,7 @@
             <div class="body_img_wrapper">
                 <div class="flex-between">
                     <img class="body_logo" src="/images/bingx_logo.png"/>
-                    <button class="body_link" onclick="window.open('https://bingx.com/en-us/')">사이트 바로가기</button>
+                    <button class="body_link" onclick="window.open('https://bingx.com/en-us/partner/koreans/')">사이트 바로가기</button>
                 </div>
                 <p class="p-big">투명하고 안전한 트레이딩 환경을 제공하는</p>
                 <p class="p-bigger">사용자를 위한 <span class="p-bigger body_bold">암호화폐 최적화 거래소</span></p>
