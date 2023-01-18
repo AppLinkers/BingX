@@ -21,3 +21,13 @@
         height: 200px;
     }
 }
+@media screen and (max-width: 500px) {
+    .banner__container {
+        height: 129px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .banner__container {
+        height: 103px;
+    }
+}
