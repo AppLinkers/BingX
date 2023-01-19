@@ -5,15 +5,15 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
-  datasource:
-    url: jdbc:mysql://bingx.c1hjri6ln58w.ap-northeast-2.rds.amazonaws.com/bingx_prod
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: admin
-    password: 2db8ddasf!
+#  datasource:
+#    url: jdbc:mysql://bingx.c1hjri6ln58w.ap-northeast-2.rds.amazonaws.com/bingx_prod
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: admin
+#    password: 2db8ddasf!
   # JPA setting
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create-drop
     show-sql: false
   # thymeleaf PUT, DELETE Method use
   mvc:

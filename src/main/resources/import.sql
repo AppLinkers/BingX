@@ -1,0 +1,1 @@
+insert into users (`login_id`, `login_pw`, `role`, `team_name`) values ('admin', '{bcrypt}$2a$10$d3QK7jlUd8NI6EdHmILzfejSoF.XSlmT/eRdb9zaXuM8YuWmTdzSO', 'ADMIN',  'admin_team')
