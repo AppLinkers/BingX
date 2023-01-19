@@ -63,7 +63,7 @@ public class GuideService {
                     ReadGuideMainRes.builder()
                             .id(guide.getId())
                             .title(guide.getTitle())
-                            .content(guide.getContent().replaceAll("<[^>]*>", ""))
+                            .content(guide.getContent().replaceAll("<[^>]*>", "").replace("&nbsp;",""))
                             .writerName(guide.getUser().getTeamName())
                             .imgUrl(guide.getImgUrl())
                             .createdAt(guide.getCreatedAt().toLocalDate())
