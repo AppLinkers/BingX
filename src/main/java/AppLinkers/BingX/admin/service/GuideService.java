@@ -63,7 +63,7 @@ public class GuideService {
                     ReadGuideMainRes.builder()
                             .id(guide.getId())
                             .title(guide.getTitle())
-                            .content(guide.getContent())
+                            .content(guide.getContent().replaceAll("<[^>]*>", ""))
                             .writerName(guide.getUser().getTeamName())
                             .imgUrl(guide.getImgUrl())
                             .createdAt(guide.getCreatedAt().toLocalDate())
@@ -129,4 +129,5 @@ public class GuideService {
     public void deleteGuide(Long guideId) {
         guideRepository.deleteById(guideId);
     }
+
 }

@@ -1,19 +1,19 @@
 spring:
   # H2-DB setting
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-#  datasource:
-#    url: jdbc:mysql://bingx.c1hjri6ln58w.ap-northeast-2.rds.amazonaws.com/bingx_prod
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    username: admin
-#    password: 2db8ddasf!
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+  datasource:
+    url: jdbc:mysql://bingx-rds.c1hjri6ln58w.ap-northeast-2.rds.amazonaws.com/bingx_prod
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: 2db8ddasf!
   # JPA setting
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     show-sql: false
   # thymeleaf PUT, DELETE Method use
   mvc:

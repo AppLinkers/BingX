@@ -202,7 +202,7 @@
                                     <div class="guide-content flex-column">
                                         <p class="p-section ellipsis-line-one" th:text="${guide.title}">
                                         </p>
-                                        <p class="p-basic ellipsis-line-three" th:id="'guideText' + ${guide.id}"> </p>
+                                        <p class="p-basic ellipsis-line-three" th:text="${guide.content}"> </p>
                                         <div class="guide-info flex-left">
                                             <p th:text="${guide.writerName}"></p>
                                             <p class="p-etc" style="color: var(--color-primary);" th:text="${guide.viewCnt}"></p>
@@ -211,15 +211,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <script th:inline="javascript">
-                                /*<![CDATA[*/
-                                var guideContent = /*[[${guide.content}]]*/;
-                                var guideText = guideContent.replace(/<[^>]+>/g, '');
-                                var guideTextHtml = document.getElementById("guideText" + /*[[${guide.id}]]*/);
-                                guideTextHtml.textContent = guideText;
 
-                                /*]]>*/
-                            </script>
                         </article>
                     </div>
                 </div>
