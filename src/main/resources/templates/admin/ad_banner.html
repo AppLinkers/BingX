@@ -61,9 +61,8 @@
         <div class="list-item banner__grid" th:each="advertisement : ${advertisementList.content}">
             <a class="list-id" th:text="${advertisement.id}" hidden></a>
             <a class="ellipsis-line-one list-title" th:text="${advertisement.title}">메인 배너광고 1</a>
-            <a href="https://cryptofortrader.com/wp-content/uploads/2022/01/bitget-logo.png"
+            <a  th:href="@{${advertisement.imgUrl}}"
                class="p-content ellipsis-line-one" style="color: var(--color-secondary);" target='_blank' th:text="${advertisement.imgUrl}">
-                https://cryptofortrader.com/wp-content/uploads/2022/01/bitget-logo.png
             </a>
             <div class="flex-center">
                 <p class="delete-button gray-box p-etc flex-center">삭제</p>
