@@ -60,8 +60,8 @@
 
         <div class="list-item list__grid" th:each="announce : ${announceList.content}">
             <a class="list-id" th:text="${announce.id}" hidden></a>
-            <a class="ellipsis-line-one list-title" th:text="${announce.title}">공지사항 제목입니다</a>
-            <p class="p-content ellipsis-line-one" th:text="${announce.writerName}">비트겟 코리아</p>
+            <a class="ellipsis-line-one list-title" th:text="${announce.title}">공지사항 제목</a>
+            <p class="p-content ellipsis-line-one" th:text="${announce.writerName}">비트겟</p>
             <p class="p-content" th:text="${announce.createdAt}">2022-12-22</p>
             <div class="flex-center">
                 <p class="delete-button gray-box p-etc flex-center">삭제</p>
