@@ -184,16 +184,16 @@ button.modal-delete {
         padding: var(--admin-padding-phone);
     }
 
-    .list__grid {
+    .list__grid,
+    .banner__grid{
         grid-template-columns: 1fr 100px;
     }
 
-    .list__grid p:nth-child(2),
-    .list__grid p:nth-child(3) {
-        display: none;
-    }
-
-    .list-item .p-contnet {
+    .list__grid .p-etc:nth-child(2),
+    .list__grid .p-etc:nth-child(3),
+    .banner__grid .p-etc:nth-child(2),
+    .banner__grid a:nth-child(3),
+    .list-item .p-content{
         display: none;
     }
 
