@@ -44,7 +44,7 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide flex-center" th:each="ad_banner : ${advertisementList}">
-                        <img th:src="${ad_banner.imgUrl}" th:onclick="'location.href=\''+ @{${ad_banner.linkUrl}} + '\''"/>
+                        <img th:src="${ad_banner.imgUrl}" th:onclick="'window.open(\''+ @{${ad_banner.linkUrl}} + '\')'"/>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
