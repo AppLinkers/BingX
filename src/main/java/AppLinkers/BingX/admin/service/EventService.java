@@ -2,6 +2,7 @@ package AppLinkers.BingX.admin.service;
 
 
 import AppLinkers.BingX.admin.domain.User;
+import AppLinkers.BingX.admin.dto.CreateEventReq;
 import AppLinkers.BingX.admin.dto.CreateGuideReq;
 import AppLinkers.BingX.admin.repository.UserRepository;
 import AppLinkers.BingX.common.domain.Event;
@@ -30,7 +31,7 @@ public class EventService {
     private final S3Service s3Service;
 
     @Transactional
-    public void createEvent(CreateGuideReq request, String userLoginId) throws IOException {
+    public void createEvent(CreateEventReq request, String userLoginId) throws IOException {
         User user = userRepository.findUserByLoginId(userLoginId).get();
 
         String imgUrl = "https://bingx-image.s3.ap-northeast-2.amazonaws.com/bingx.png";
@@ -51,7 +52,7 @@ public class EventService {
 
 
     @Transactional
-    public List<ReadEventMainRes> readEventMainRes() {
+    public List<ReadEventMainRes> readEventMainList() {
         List<ReadEventMainRes> result = new ArrayList<>();
 
         for (Event event : eventRepository.findTop3ByOrderByCreatedAtDesc()) {
@@ -106,7 +107,7 @@ public class EventService {
     public ReadEventDetailRes readEvent(Long eventId) {
 
         Event event = eventRepository.findById(eventId).get();
-        event.setViewCnt(event.getViewCnt() + 1);
+        event.addViewCnt();
 
         return ReadEventDetailRes.builder()
                 .id(event.getId())
@@ -128,4 +129,4 @@ public class EventService {
         eventRepository.deleteById(guideId);
     }
 
-        }
+}

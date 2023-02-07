@@ -50,4 +50,8 @@ public class Event {
         this.viewCnt = 0;
         this.user = user;
     }
+
+    public void addViewCnt() {
+        this.viewCnt += 1;
+    }
 }

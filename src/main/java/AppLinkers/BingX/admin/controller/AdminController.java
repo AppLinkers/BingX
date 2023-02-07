@@ -3,9 +3,11 @@ package AppLinkers.BingX.admin.controller;
 
 import AppLinkers.BingX.admin.dto.CreateAdvertisementReq;
 import AppLinkers.BingX.admin.dto.CreateAnnounceReq;
+import AppLinkers.BingX.admin.dto.CreateEventReq;
 import AppLinkers.BingX.admin.dto.CreateGuideReq;
 import AppLinkers.BingX.admin.service.AdvertisementService;
 import AppLinkers.BingX.admin.service.AnnounceService;
+import AppLinkers.BingX.admin.service.EventService;
 import AppLinkers.BingX.admin.service.GuideService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +28,7 @@ public class AdminController {
     private final AnnounceService announceService;
     private final GuideService guideService;
     private final AdvertisementService advertisementService;
+    private final EventService eventService;
 
     ///// ANNOUNCE CONTROLLER /////////
 
@@ -85,7 +88,6 @@ public class AdminController {
     }
 
     ///////ADVERTISEMENT CONTROLLER ///////
-
     @GetMapping("/admin/ad_banner")
     public String adminAdvertisementPage(Model model, Pageable pageable) {
         model.addAttribute("advertisementList", advertisementService.readAdvertisementList(pageable));
@@ -109,5 +111,32 @@ public class AdminController {
         advertisementService.createAdvertisement(createAdvertisementReq);
 
         return "redirect:/admin/ad_banner";
+    }
+
+    ///////Event CONTROLLER ///////
+    @GetMapping("/admin/event")
+    public String adminEventPage(Model model, Pageable pageable) {
+        model.addAttribute("eventList", eventService.readEventList(pageable));
+        return "admin/event";
+    }
+
+    @DeleteMapping("/admin/event/{id}")
+    public String deleteEvent(@PathVariable Long id) {
+        eventService.deleteEvent(id);
+
+        return "redirect:/admin/event";
+    }
+
+    @GetMapping("/admin/event/form")
+    public String adminEventForm(CreateEventReq createEventReq) {
+        return "admin/event_form";
+    }
+
+    @PostMapping("/admin/event")
+    public String createEvent(CreateEventReq createEventReq) throws IOException {
+        String userLoginId = SecurityContextHolder.getContext().getAuthentication().getName();
+        eventService.createEvent(createEventReq, userLoginId);
+
+        return "redirect:/admin/event";
     }
 }
