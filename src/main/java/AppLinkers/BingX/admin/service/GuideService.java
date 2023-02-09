@@ -4,6 +4,7 @@ import AppLinkers.BingX.admin.domain.User;
 import AppLinkers.BingX.admin.dto.CreateGuideReq;
 import AppLinkers.BingX.admin.repository.UserRepository;
 import AppLinkers.BingX.common.domain.Guide;
+import AppLinkers.BingX.common.dto.ReadEventInfoRes;
 import AppLinkers.BingX.common.dto.ReadGuideDetailRes;
 import AppLinkers.BingX.common.dto.ReadGuideInfoRes;
 import AppLinkers.BingX.common.dto.ReadGuideMainRes;

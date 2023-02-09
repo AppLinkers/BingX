@@ -91,9 +91,9 @@
       <nav id="pagination" class="flex-center">
         <table>
           <tr>
-            <td th:if="${evnetList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, evnetList.totalPages - 1)}">
-              <a class="a-content pagination active" th:if="${evnetList.number == i}" th:text="${i}" th:href="@{|/event?page=${i}|}"></a>
-              <a class="a-content pagination" th:unless="${evnetList.number == i}" th:text="${i}" th:href="@{|/event?page=${i}|}"></a>
+            <td th:if="${eventList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, eventList.totalPages - 1)}">
+              <a class="a-content pagination active" th:if="${eventList.number == i}" th:text="${i}" th:href="@{|/event?page=${i}|}"></a>
+              <a class="a-content pagination" th:unless="${eventList.number == i}" th:text="${i}" th:href="@{|/event?page=${i}|}"></a>
             </td>
           </tr>
         </table>
