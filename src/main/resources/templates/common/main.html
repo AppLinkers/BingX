@@ -163,13 +163,20 @@
 
                 <div class="home-label flex-between">
                     <div class="label-list">
-                        <a class="a-label active">공지사항</a>
+                        <a class="a-label active">이벤트</a>
+                        <a class="a-label">공지사항</a>
                         <a class="a-label">가이드</a>
                     </div>
 
                     <div class="label-buttons">
+                        <!-- 이벤트로 -->
+                        <a class="active" href="/event">
+                            <div class="label-plus gray-stroke flex-center">
+                                <i class="uil uil-plus"></i>
+                            </div>
+                        </a>
                         <!-- 공지사항으로 -->
-                        <a class="active" href="/announce">
+                        <a href="/announce">
                             <div class="label-plus gray-stroke flex-center">
                                 <i class="uil uil-plus"></i>
                             </div>
@@ -186,8 +193,35 @@
 
                 <div class="home-divs">
 
-                    <!-- ======== 공지사항 탭 ======= -->
+                    <!-- ======== 이벤트 탭 ======= -->
                     <div class="home-target-div active" >
+
+                        <article class="article-form" th:each="guide : ${guideList}">
+                            <a th:href="@{'/guide/' + ${guide.id}}">
+                                <div class="article-inner">
+
+                                    <div class="article-img">
+                                        <img th:src="${guide.imgUrl}">
+                                    </div>
+
+                                    <div class="guide-content flex-column">
+                                        <p class="p-section ellipsis-line-one" th:text="${guide.title}">
+                                        </p>
+                                        <p class="p-basic ellipsis-line-three" th:text="${guide.content}"> </p>
+                                        <div class="guide-info flex-left">
+                                            <p th:text="${guide.writerName}"></p>
+                                            <p class="p-etc" style="color: var(--color-primary);" th:text="${guide.viewCnt}"></p>
+                                            <p class="p-etc" style="color: var(--color-gray);" th:text="${guide.createdAt}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </article>
+                    </div>
+
+                    <!-- ======== 공지사항 탭 ======= -->
+                    <div class="home-target-div" >
 
                         <article class="announce-article" th:each="announce : ${announceList}">
                             <p class="p-title">공지사항</p>
@@ -225,6 +259,7 @@
 
                         </article>
                     </div>
+
                 </div>
 
             </div>
