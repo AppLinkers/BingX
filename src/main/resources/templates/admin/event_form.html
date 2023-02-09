@@ -43,7 +43,7 @@
 <!-- ======== ADMIN ======== -->
 <div class="container admin__container">
 
-    <form th:action="@{/admin/guide}" th:method="post" th:object="${createGuideReq}" enctype="multipart/form-data">
+    <form th:action="@{/admin/event}" th:method="post" th:object="${createEventReq}" enctype="multipart/form-data">
         <div class="admin__title flex-between">
             <p class="p-menu">가이드 작성</p>
             <button type="submit" onclick="submitContents()">발행하기</button>

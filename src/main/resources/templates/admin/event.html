@@ -43,7 +43,7 @@
 
     <div class="admin__title flex-between">
         <p class="p-menu">이벤트 관리</p>
-        <a href="/admin/guide/form" class="add-button gray-stroke flex-center">
+        <a href="/admin/event/form" class="add-button gray-stroke flex-center">
             <i class="uil uil-pen"></i>
             <p class="p-content" style="margin-left: 5px;">작성하기</p>
         </a>
@@ -58,11 +58,11 @@
 
     <div class="admin__list" >
 
-        <div class="list-item list__grid" th:each="guide : ${guideList.content}">
-            <a class="list-id" th:text="${guide.id}" hidden></a>
-            <a class="ellipsis-line-one list-title" th:text="${guide.title}">가이드 제목입니다</a>
-            <p class="p-content ellipsis-line-one" th:text="${guide.writerName}">비트겟 코리아</p>
-            <p class="p-content" th:text="${guide.createdAt}">2022-12-22</p>
+        <div class="list-item list__grid" th:each="event : ${eventList.content}">
+            <a class="list-id" th:text="${event.id}" hidden></a>
+            <a class="ellipsis-line-one list-title" th:text="${event.title}">가이드 제목입니다</a>
+            <p class="p-content ellipsis-line-one" th:text="${event.writerName}">비트겟 코리아</p>
+            <p class="p-content" th:text="${event.createdAt}">2022-12-22</p>
             <div class="flex-center">
                 <p class="delete-button gray-box p-etc flex-center">삭제</p>
             </div>
@@ -74,9 +74,9 @@
     <nav id="pagination" class="flex-center">
         <table>
             <tr>
-                <td th:if="${guideList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, guideList.totalPages - 1)}">
-                    <a class="a-content pagination active" th:if="${guideList.number == i}" th:text="${i}" th:href="@{|/admin/guide?page=${i}|}"></a>
-                    <a class="a-content pagination" th:unless="${guideList.number == i}" th:text="${i}" th:href="@{|/admin/guide?page=${i}|}"></a>
+                <td th:if="${eventList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, eventList.totalPages - 1)}">
+                    <a class="a-content pagination active" th:if="${eventList.number == i}" th:text="${i}" th:href="@{|/admin/guide?page=${i}|}"></a>
+                    <a class="a-content pagination" th:unless="${eventList.number == i}" th:text="${i}" th:href="@{|/admin/guide?page=${i}|}"></a>
                 </td>
             </tr>
         </table>
@@ -87,7 +87,7 @@
 <!-- ======== MODAL ======== -->
 <div class="modal">
     <div class="modal__body">
-        <form class="modal__form" action="/admin/guide/"  th:method="delete">
+        <form class="modal__form" action="/admin/event/"  th:method="delete">
 
             <div class="modal__content">
                 <p class="p-title">삭제</p>

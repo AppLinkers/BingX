@@ -63,26 +63,26 @@
       </div>
 
       <div class="detail-title">
-        <p class="p-menu" th:text="${guide.title}">비트겟 이용 가이드 - 마진 거래 활용하기</p>
+        <p class="p-menu" th:text="${event.title}">비트겟 이용 가이드 - 마진 거래 활용하기</p>
       </div>
 
       <div class="detail-label flex-between">
         <div class="flex-left">
-          <p class="p-title" style="margin-right: 25px; color: var(--color-black);" th:text="${guide.writerName}">비트겟 코리아</p>
+          <p class="p-title" style="margin-right: 25px; color: var(--color-black);" th:text="${event.writerName}">비트겟 코리아</p>
           <i class="uil uil-eye" style="margin-right: 5px;"></i>
-          <p th:text="${guide.viewCnt}">288</p>
+          <p th:text="${event.viewCnt}">288</p>
         </div>
 
         <div class="flex-left">
           <i class="uil uil-clock" style="margin-right: 5px;"></i>
-          <p th:text="${guide.createdAt}">22.12.20</p>
+          <p th:text="${event.createdAt}">22.12.20</p>
         </div>
       </div>
 
       <div class="detail-img flex-center">
-        <img th:src="${guide.imgUrl}" alt="">
+        <img th:src="${event.imgUrl}" alt="">
       </div>
-      <p class="p-section" th:utext="${guide.content}"></p>
+      <p class="p-section" th:utext="${event.content}"></p>
 
     </div>
   </div>

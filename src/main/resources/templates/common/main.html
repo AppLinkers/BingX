@@ -196,22 +196,22 @@
                     <!-- ======== 이벤트 탭 ======= -->
                     <div class="home-target-div active" >
 
-                        <article class="article-form" th:each="guide : ${guideList}">
-                            <a th:href="@{'/guide/' + ${guide.id}}">
+                        <article class="article-form" th:each="event : ${eventList}">
+                            <a th:href="@{'/event/' + ${event.id}}">
                                 <div class="article-inner">
 
                                     <div class="article-img">
-                                        <img th:src="${guide.imgUrl}">
+                                        <img th:src="${event.imgUrl}">
                                     </div>
 
                                     <div class="guide-content flex-column">
-                                        <p class="p-section ellipsis-line-one" th:text="${guide.title}">
+                                        <p class="p-section ellipsis-line-one" th:text="${event.title}">
                                         </p>
-                                        <p class="p-basic ellipsis-line-three" th:text="${guide.content}"> </p>
+                                        <p class="p-basic ellipsis-line-three" th:text="${event.content}"> </p>
                                         <div class="guide-info flex-left">
-                                            <p th:text="${guide.writerName}"></p>
-                                            <p class="p-etc" style="color: var(--color-primary);" th:text="${guide.viewCnt}"></p>
-                                            <p class="p-etc" style="color: var(--color-gray);" th:text="${guide.createdAt}"></p>
+                                            <p th:text="${event.writerName}"></p>
+                                            <p class="p-etc" style="color: var(--color-primary);" th:text="${event.viewCnt}"></p>
+                                            <p class="p-etc" style="color: var(--color-gray);" th:text="${event.createdAt}"></p>
                                         </div>
                                     </div>
                                 </div>

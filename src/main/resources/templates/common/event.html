@@ -65,21 +65,21 @@
 
       <div class="article-list">
 
-        <article class="article-form" th:each="guide : ${guideList}">
-          <a th:href="'/guide/' + ${guide.id}">
+        <article class="article-form" th:each="event : ${eventList}">
+          <a th:href="'/event/' + ${event.id}">
             <div class="article-inner">
               <div class="article-img">
-                <img th:src="${guide.imgUrl}">
+                <img th:src="${event.imgUrl}">
               </div>
 
               <div class="article-content">
-                <p class="p-section ellipsis-line-one" th:text="${guide.title}">비트겟 이용 가이드 - 마진 거래 활용하기</p>
+                <p class="p-section ellipsis-line-one" th:text="${event.title}">비트겟 이용 가이드 - 마진 거래 활용하기</p>
                 <div class="article-info flex-left">
-                  <p style="font-weight: 300;" th:text="${guide.writerName}">비트겟 코리아</p>
+                  <p style="font-weight: 300;" th:text="${event.writerName}">비트겟 코리아</p>
                   <p class="p-content" style="color: var(--color-gray20);">|</p>
-                  <p class="p-content" style="color: var(--color-primary);" th:text="${guide.viewCnt}">288</p>
+                  <p class="p-content" style="color: var(--color-primary);" th:text="${event.viewCnt}">288</p>
                   <p class="p-content" style="color: var(--color-gray20);">|</p>
-                  <p class="p-content" style="color: var(--color-gray); font-weight: 300;" th:text="${guide.createdAt}">2022.12.20</p>
+                  <p class="p-content" style="color: var(--color-gray); font-weight: 300;" th:text="${event.createdAt}">2022.12.20</p>
                 </div>
               </div>
             </div>
@@ -91,9 +91,9 @@
       <nav id="pagination" class="flex-center">
         <table>
           <tr>
-            <td th:if="${guideList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, guideList.totalPages - 1)}">
-              <a class="a-content pagination active" th:if="${guideList.number == i}" th:text="${i}" th:href="@{|/guide?page=${i}|}"></a>
-              <a class="a-content pagination" th:unless="${guideList.number == i}" th:text="${i}" th:href="@{|/guide?page=${i}|}"></a>
+            <td th:if="${evnetList.totalPages} > 0" th:each="i: ${#numbers.sequence(0, evnetList.totalPages - 1)}">
+              <a class="a-content pagination active" th:if="${evnetList.number == i}" th:text="${i}" th:href="@{|/event?page=${i}|}"></a>
+              <a class="a-content pagination" th:unless="${evnetList.number == i}" th:text="${i}" th:href="@{|/event?page=${i}|}"></a>
             </td>
           </tr>
         </table>
