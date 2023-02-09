@@ -34,7 +34,7 @@
 <!-- ======== NAV ======== -->
 <nav id="nav"></nav>
 <style>
-    .nav__container a:nth-child(3) {
+    .nav__container a:nth-child(1) {
         border-bottom: 3px solid var(--color-primary);
         color: var(--color-primary);
     }
@@ -45,7 +45,7 @@
 
     <form th:action="@{/admin/event}" th:method="post" th:object="${createEventReq}" enctype="multipart/form-data">
         <div class="admin__title flex-between">
-            <p class="p-menu">가이드 작성</p>
+            <p class="p-menu">이벤트 작성</p>
             <button type="submit" onclick="submitContents()">발행하기</button>
         </div>
 
