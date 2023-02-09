@@ -22,7 +22,7 @@ public class FormAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        setDefaultTargetUrl("/admin/announce");
+        setDefaultTargetUrl("/admin/event");
 
         SavedRequest savedRequest = requestCache.getRequest(request, response);
         if (savedRequest != null) {
