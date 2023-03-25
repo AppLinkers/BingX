@@ -524,4 +524,12 @@ section {
         display: none;
     }
 
+    .grid-right {
+        background-color: #FBE400;
+    }
+
+    .grid-right img {
+        width: 50%;
+    }
+
 }
